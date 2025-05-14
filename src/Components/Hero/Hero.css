@@ -7,7 +7,6 @@
     justify-content: space-between;
     align-items: center;
     overflow: hidden;
-    
     max-width: 100%;
     box-sizing: border-box;
 }
@@ -47,11 +46,11 @@
     width: 50%;
 }
 .img1{
-    width: 80%; /* Adjusted size */
+    width: 80%;
     height: auto;
     position: absolute;
     right: 25%;
-    top: 3%;
+    top: 1%;
     max-width: 400px;
     z-index: 1;
 }
