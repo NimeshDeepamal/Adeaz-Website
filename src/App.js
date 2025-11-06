@@ -12,7 +12,6 @@ import Footer from './Components/Footer/Footer.jsx';
 import men_banner from './Components/Assets/mens-banner.jpg';
 import women_banner from './Components/Assets/womens-banner.avif';
 
-import { useEffect } from 'react';
 
 function AppWrapper() {
   const location = useLocation();
