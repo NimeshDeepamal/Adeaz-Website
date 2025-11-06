@@ -3,23 +3,26 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  padding: 40px 30px;
+  padding: 50px 30px;
   margin-bottom: 20px;
+  background: linear-gradient(to bottom, #0f0f0f, #181818);
+  border-radius: 20px;
   box-sizing: border-box;
 }
 
 .relatedproducts h1 {
-  color: aliceblue;
-  font-size: 36px;
-  font-weight: 600;
+  color: #e6e6e6;
+  font-size: 38px;
+  font-weight: 700;
   text-align: center;
+  letter-spacing: 1px;
 }
 
 .relatedproducts hr {
-  width: 200px;
-  height: 6px;
-  border-radius: 10px;
-  background: #252525;
+  width: 220px;
+  height: 5px;
+  border-radius: 5px;
+  background: #00ffff55;
   border: none;
   margin-top: 10px;
 }
@@ -27,42 +30,44 @@
 .relatedproducts-item {
   margin-top: 50px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  gap: 35px;
   width: 100%;
   justify-items: center;
 }
 
-/* 🔽 Responsive breakpoints */
+/* 🔽 Tablets (medium screens) */
 @media (max-width: 1024px) {
   .relatedproducts h1 {
-    font-size: 32px;
+    font-size: 34px;
   }
 
   .relatedproducts-item {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
     gap: 25px;
   }
 }
 
+/* 🔽 Large phones / small tablets */
 @media (max-width: 768px) {
   .relatedproducts h1 {
     font-size: 28px;
   }
 
   .relatedproducts-item {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(160px, 1fr));
     gap: 20px;
   }
 }
 
-@media (max-width: 500px) {
+/* 🔽 Mobile phones */
+@media (max-width: 480px) {
   .relatedproducts h1 {
     font-size: 24px;
   }
 
   .relatedproducts-item {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
 }

@@ -138,6 +138,9 @@
 }
 
 @media (max-width: 480px) {
+  .footer-logo{
+    height: 200px;
+  }
   .footer-links {
     flex-direction: column;
     gap: 15px;

@@ -5,8 +5,10 @@
   margin: auto;
   margin-bottom: 100px;
   padding: 0 140px;
-  background: linear-gradient(to bottom left, #070707, #D8D8D8);
+  background: linear-gradient(to bottom left, #070707, #d8d8d8);
   gap: 30px;
+  border-radius: 20px;
+  align-items: center;
 }
 
 /* Left side */
@@ -18,7 +20,7 @@
 }
 
 .offers-left h1 {
-  color: rgb(0, 0, 0);
+  color: #000;
   font-size: 80px;
   font-weight: 600;
   margin: 0;
@@ -26,7 +28,7 @@
 }
 
 .offers-left p {
-  color: rgb(30, 29, 29);
+  color: #1e1d1d;
   font-size: 22px;
   font-weight: 600;
   margin-top: 15px;
@@ -59,95 +61,111 @@
 }
 
 .offers-right img {
-  margin-bottom: 75px;
   width: 100%;
+  max-width: 500px;
   border-radius: 20px;
-  max-width: 100%; /* ensure image doesn't overflow */
   height: auto;
+  margin-bottom: 50px;
 }
 
-/* Responsive media queries */
-
+/* ✅ Tablet and Large Screen — keep same layout but smaller sizes */
 @media (max-width: 1024px) {
   .offers {
-    width: 90%;
-    height: auto;
+    width: 85%;
+    height: 50vh;
     padding: 0 60px;
   }
-  
+
   .offers-left h1 {
     font-size: 60px;
   }
-  
+
   .offers-left p {
     font-size: 18px;
   }
-  
+
   .offers-left button {
     width: 220px;
     height: 55px;
     font-size: 18px;
   }
-  
+
   .offers-right img {
-    width: 100%;
+    max-width: 420px;
+    margin-bottom: 40px;
   }
 }
 
+/* ✅ Mobile Screens — stack content & image moves to bottom */
 @media (max-width: 768px) {
   .offers {
     flex-direction: column;
-    height: auto;
-    padding: 20px 30px;
-    gap: 30px;
-  }
-  
-  .offers-left, .offers-right {
-    flex: unset;
-    width: 100%;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 98vh;
+    padding: 40px 30px;
+    gap: 20px;
     text-align: center;
   }
-  
-  .offers-left h1 {
-    font-size: 40px;
+
+  .offers-left {
+    order: 1;
+    align-items: center;
+    margin-top: 60px;
   }
-  
+
+  .offers-right {
+    order: 2; /* image at bottom */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .offers-left h1 {
+    font-size: 38px;
+  }
+
   .offers-left p {
     font-size: 16px;
   }
-  
+
   .offers-left button {
     width: 180px;
     height: 50px;
     font-size: 16px;
-    margin: 20px auto 0;
   }
-  
+
   .offers-right img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 15px;
+    max-width: 350px;
+    margin-top: 40px; /* ✅ add space from top */
+    margin-bottom: 0;
   }
 }
 
+/* ✅ Small Mobile Devices */
 @media (max-width: 480px) {
+  .offers {
+    width: 95%;
+    padding: 30px 20px;
+  }
+
   .offers-left h1 {
     font-size: 28px;
   }
-  
+
   .offers-left p {
     font-size: 14px;
   }
-  
+
   .offers-left button {
-    width: 140px;
+    width: 150px;
     height: 45px;
     font-size: 14px;
   }
-  
+
   .offers-right img {
-    max-width: 300px;
+    max-width: 280px;
+    margin-top: 45px; /* ✅ ensures image doesn’t overlap */
   }
 }
