@@ -1,0 +1,261 @@
+.cartitems {
+  margin: 100px 170px;
+  color: #fff;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cartitems hr {
+  height: 3px;
+  background: #e2e2e2;
+  border: 0;
+}
+
+/* Grid headers and rows */
+.cartitems-format-main {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 75px;
+  padding: 20px 0;
+  color: #f6f6f6;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.cartitems-format {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.carticon-product-icon {
+  height: 62px;
+  width: auto;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+.cartitems-remove-icon {
+  width: 15px;
+  margin: 0 40px;
+  cursor: pointer;
+}
+
+.cartitems-quantity {
+  width: 64px;
+  height: 50px;
+  border: 2px solid #0d0d0d;
+  background: #262626;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  /* line-height: 50px; */
+  border-radius: 6px;
+  /* padding-bottom: 10px; */
+}
+
+/* Bottom section */
+.cartitems-down {
+  display: flex;
+  margin: 100px 0;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.cartitems-total {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-right: 200px;
+  gap: 40px;
+  min-width: 280px;
+}
+
+.cartitems-total-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  font-size: 18px;
+}
+
+.cartitems-total h1 {
+  margin: 0;
+}
+
+.cartitems-total button {
+  width: 262px;
+  height: 58px;
+  outline: none;
+  border: none;
+  background: #ff5a5a;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.cartitems-total button:hover {
+  background: #e04e4e;
+}
+
+.cartitems-promocode {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+  min-width: 280px;
+}
+
+.cartitems-promocode p {
+  color: #d0d0d0;
+  margin: 0;
+}
+
+.cartitems-promobox {
+  width: 100%;
+  max-width: 504px;
+  margin-top: 15px;
+  padding-left: 20px;
+  height: 58px;
+  background: #eaeaea;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.cartitems-promobox input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  flex: 1;
+  height: 50px;
+  padding-left: 10px;
+}
+
+.cartitems-promobox button {
+  width: 140px;
+  height: 100px;
+  font-size: 16px;
+  background: rgb(137, 137, 137);
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  border: none;
+  margin-right: 4px;
+  border-radius: 0 6px 6px 0;
+  transition: background-color 0.3s;
+}
+
+.cartitems-promobox button:hover {
+  background: #0e0e0e;
+  color: #f6f6f6;
+}
+
+/* Responsive Breakpoints */
+
+@media (max-width: 1280px) {
+  .cartitems {
+    margin: 80px 60px;
+  }
+  .cartitems-format-main {
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
+    gap: 40px;
+    font-size: 16px;
+  }
+  .cartitems-format {
+    font-size: 15px;
+  }
+  .cartitems-quantity {
+    width: 50px;
+    height: 40px;
+    font-size: 14px;
+  }
+  .cartitems-total-item {
+    font-size: 16px;
+  }
+  .cartitems-total button,
+  .cartitems-promobox button {
+    width: 200px;
+    height: 50px;
+    font-size: 14px;
+  }
+  .cartitems-promobox {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .cartitems {
+    margin: 60px 40px;
+  }
+  .cartitems-format-main {
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr 0.5fr;
+    gap: 20px;
+  }
+  .cartitems-total {
+    margin-right: 0;
+  }
+  .cartitems-down {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .cartitems-total,
+  .cartitems-promocode {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .cartitems {
+    margin: 40px 20px;
+  }
+  .cartitems-format-main {
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 10px;
+    font-size: 14px;
+  }
+  .cartitems-format > p,
+  .cartitems-format > button,
+  .carticon-product-icon {
+    /* Hide columns that don’t fit on mobile */
+  }
+  .cartitems-format > p:nth-child(5),
+  .cartitems-format > p:nth-child(6),
+  .cartitems-format > button:nth-child(4) {
+    display: none;
+  }
+  .cartitems-quantity {
+    width: 40px;
+    height: 35px;
+    font-size: 14px;
+  }
+  .cartitems-total-item {
+    font-size: 14px;
+  }
+  .cartitems-total button,
+  .cartitems-promobox button {
+    width: 100%;
+    height: 50px;
+  }
+  .cartitems-promobox {
+    max-width: 100%;
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .cartitems {
+    margin: 20px 10px;
+  }
+  .cartitems-format-main {
+    font-size: 13px;
+  }
+  .cartitems-quantity {
+    width: 35px;
+    height: 30px;
+  }
+}
