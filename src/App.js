@@ -28,7 +28,7 @@ function AppWrapper() {
         <Route path='/' element={<Home />} />
         <Route path='/mens' element={<ShopCategory banner={men_banner} category="men" />} />
         <Route path='/womens' element={<ShopCategory banner={women_banner} category="women" />} />
-        <Route path='/store' element={<ShopCategory category="store" />} />
+        <Route path='/store' element={<ShopCategory category="accessories" />} />
         <Route path="/product" element={<Product />}>
           <Route path=':productId' element={<Product />} />
         </Route>

@@ -27,6 +27,30 @@
   margin-top: 10px;
 }
 
+/* 🖼️ Image container for fixed box size */
+.item {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 10px;
+  overflow: hidden; /* ensures cropped edges are hidden */
+  background: #1e1e1e;
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.item:hover {
+  transform: translateY(-5px);
+}
+
+/* Image fixed inside the box */
+.item img {
+  width: 100%;
+  height: 280px; /* fixed image height */
+  object-fit: cover; /* crops while maintaining aspect ratio */
+  display: block;
+}
+
+/* 🔽 Grid layout */
 .relatedproducts-item {
   margin-top: 50px;
   display: grid;
@@ -38,10 +62,6 @@
 
 /* 🔽 Tablets (medium screens) */
 @media (max-width: 1024px) {
-  .relatedproducts h1 {
-    font-size: 34px;
-  }
-
   .relatedproducts-item {
     grid-template-columns: repeat(3, minmax(220px, 1fr));
     gap: 25px;
@@ -50,24 +70,24 @@
 
 /* 🔽 Large phones / small tablets */
 @media (max-width: 768px) {
-  .relatedproducts h1 {
-    font-size: 28px;
+  .relatedproducts-item {
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+    gap: 20px;
   }
 
-  .relatedproducts-item {
-    grid-template-columns: repeat(2, minmax(160px, 1fr));
-    gap: 20px;
+  .item img {
+    height: 240px;
   }
 }
 
 /* 🔽 Mobile phones */
 @media (max-width: 480px) {
-  .relatedproducts h1 {
-    font-size: 24px;
-  }
-
   .relatedproducts-item {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
+  }
+
+  .item img {
+    height: 200px;
   }
 }

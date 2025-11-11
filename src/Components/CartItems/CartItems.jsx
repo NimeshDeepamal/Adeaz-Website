@@ -1,12 +1,14 @@
-import React, { useContext } from 'react'
-import './CartItems.css'
-import { ShopContext } from '../../Context/ShopContext'
-// import remove_icon from '../Assets/cart_cross_icon.png'
+import React, { useContext } from 'react';
+import './CartItems.css';
+import { ShopContext } from '../../Context/ShopContext';
+import { AiOutlineClose } from 'react-icons/ai'; // React Icon
 
 const CartItems = () => {
-    const{getTotalCartAmount,all_product,cartItems} = useContext(ShopContext);
+  const { getTotalCartAmount, all_product, cartItems, removeFromCart } = useContext(ShopContext);
+
   return (
     <div className='cartitems'>
+      {/* Header Row for Large Screens */}
       <div className="cartitems-format-main">
         <p>Products</p>
         <p>Title</p>
@@ -16,54 +18,84 @@ const CartItems = () => {
         <p>Remove</p>
       </div>
       <hr />
-     {all_product.map((e)=>{
-        if(cartItems[e.id]>0){
-            return <div>
-                        <div className='cartitems-format cartitems-format-main'>
-                            <img src={e.image} alt="" className='carticon-product-icon'/>
-                            <p>{e.name}</p>
-                            <p>RS.{e.new_price}</p>
-                            <button className='cartitems-quantity'>{cartItems[e.id]}</button>
-                            <p>RS.{e.new_price*cartItems[e.id]}</p>
-                            {/* <img src={remove_icon} onClick={()=>{removeFromCart(e.id)}} alt="" /> */}
-                        </div>
-                        <hr />
-                    </div>
+
+      {/* Product Rows */}
+      {all_product.map((e) => {
+        if (cartItems[e.id] > 0) {
+          return (
+            <div key={e.id}>
+              {/* ---- Large Screens Layout ---- */}
+              <div className='cartitems-format cartitems-format-main desktop-layout'>
+                <img src={e.image[0]} alt="" className='carticon-product-icon' />
+                <p>{e.name}</p>
+                <p>RS.{e.new_price}</p>
+                <button className='cartitems-quantity'>{cartItems[e.id]}</button>
+                <p>RS.{e.new_price * cartItems[e.id]}</p>
+                <AiOutlineClose
+                  className='cartitems-remove-icon'
+                  onClick={() => removeFromCart(e.id)}
+                />
+              </div>
+
+              {/* ---- Mobile Layout ---- */}
+              <div className="cartitems-format mobile-layout">
+                <div className="cartitems-top">
+                  <img src={e.image[0]} alt="" className="carticon-product-icon" />
+                  <div className="cartitems-details">
+                    <p className="title">{e.name}</p>
+                    <p>Price: RS.{e.new_price}</p>
+                    <p>Quantity: {cartItems[e.id]}</p>
+                  </div>
+                </div>
+                <div className="cartitems-bottom">
+                  <p className="total">Total: RS.{e.new_price * cartItems[e.id]}</p>
+                  <AiOutlineClose
+                    className="cartitems-remove-icon"
+                    onClick={() => removeFromCart(e.id)}
+                  />
+                </div>
+              </div>
+
+              <hr />
+            </div>
+          );
         }
         return null;
-     })}
-     <div className="cartitems-down">
-        <div className="cartitems-total">
-            <h1>Cart Totals</h1>
-            <div>
-                <div className="cartitems-total-item">
-                    <p>Subtotal</p>
-                    <p>RS.{getTotalCartAmount()}</p>
-                </div>
-                <hr />
-                <div className="cartitems-total-item">
-                    <p>Shipping Fee</p>
-                    <p>Free</p>
-                </div>
-                <hr />
-                <div className="cartitems-total-item">
-                    <h3>Total</h3>
-                    <h3>RS.{getTotalCartAmount()}</h3>
-                </div>
-            </div>
-            <button>PROCEED TO CHECKOUT</button>
-        </div>
-        <div className="cartitems-promocode">
-            <p>If you have a promo code, Enter it here</p>
-            <div className="cartitems-promobox">
-                <input type="text" />
-                <button>Submit</button> 
-            </div>
-        </div>
-     </div>
-    </div>
-    
-  )
-}
+      })}
 
-export default CartItems
+      {/* Bottom Section */}
+      <div className="cartitems-down">
+        <div className="cartitems-total">
+          <h1>Cart Totals</h1>
+          <div>
+            <div className="cartitems-total-item">
+              <p>Subtotal</p>
+              <p>RS.{getTotalCartAmount()}</p>
+            </div>
+            <hr />
+            <div className="cartitems-total-item">
+              <p>Shipping Fee</p>
+              <p>Free</p>
+            </div>
+            <hr />
+            <div className="cartitems-total-item">
+              <h3>Total</h3>
+              <h3>RS.{getTotalCartAmount()}</h3>
+            </div>
+          </div>
+          <button>PROCEED TO CHECKOUT</button>
+        </div>
+
+        <div className="cartitems-promocode">
+          <p>If you have a promo code, Enter it here</p>
+          <div className="cartitems-promobox">
+            <input type="text" placeholder="Enter code" />
+            <button>Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CartItems;

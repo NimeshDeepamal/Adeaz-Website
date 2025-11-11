@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Popular.css"
-import data_product from '../Assets/data'
+import data_product from '../Assets/popuular_women'
 import Item from '../Items/Item'
 
 const Popular = () => {
@@ -17,6 +17,8 @@ const Popular = () => {
             image={item.image}
             new_price={item.new_price}
             old_price={item.old_price}
+            rating={item.star}
+            reviews={item.reviews}
           />
         ))}
       </div>

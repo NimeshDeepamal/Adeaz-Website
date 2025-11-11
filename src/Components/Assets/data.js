@@ -1,36 +1,44 @@
-import p1_img from '../Assets/p1.png'
-import p2_img from '../Assets/p2.png'
-import p3_img from '../Assets/p3.png'
-import p4_img from '../Assets/p4.png'
+import p7_img1 from '../Assets/p7_img1.webp'
+import p8_img1 from '../Assets/p8_img1.webp'
+import p9_img1 from '../Assets/p9_img1.webp'
+import p10_img1 from '../Assets/p10_img1.jpeg'
 
 let data_product= [
     {
-        id: 1,
-        name: "Handloom Cotton Saree with Traditional Motifs",
-        image: p1_img, 
-        new_price: 6500.00, 
-        old_price: 8200.00,
+        id: 7,
+        name: "Premium Cotton Shirt with Classic Collar and Slim Fit",
+        image: p7_img1,
+        new_price: 4200.00,
+        old_price: 5000.00,
+        star: 4,
+        reviews: 60,
+      },
+      {
+        id: 8,
+        name: "Boys Cotton Kurta with Button Detailing and Comfortable Fit",
+        image: p8_img1,
+        new_price: 2600.00,
+        old_price: 3200.00,
+        star: 3,
+        reviews: 45,
+      },
+      {
+        id: 9,
+        name: "Georgette Saree with Embroidered Motifs and Sheer Pallu",
+        image: p9_img1,
+        new_price: 9500.00,
+        old_price: 11200.00,
+        star: 5,
+        reviews: 70,
     },
-    {
-        id: 2,
-        name: "Ladies' Sleeveless Kurti - Soft Linen",
-        image: p2_img,
-        new_price: 3800.00,
-        old_price: 4500.00,
-    },
-    {
-        id: 3,
-        name: "Girls' Party Frock - Kandyan Inspired",
-        image: p3_img,
-        new_price: 3100.00,
-        old_price: 3800.00,
-    },
-    {
-        id: 4,
-        name: "Batik Wrap Skirt with Traditional Patterns",
-        image: p4_img,
-        new_price: 4800.00,
-        old_price: 5800.00,
+      {
+        id: 10,
+        name: "Handcrafted Beaded Necklace with Adjustable Closure and Vibrant Accents",
+        image: p10_img1,
+        new_price: 1750.00,
+        old_price: 2100.00,
+        star: 4,
+        reviews: 35,
     }
 ]
 export default data_product
