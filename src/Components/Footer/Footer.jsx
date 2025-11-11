@@ -28,9 +28,9 @@ const Footer = () => {
         </div>
 
         <div className="footer-social-icons">
-          <a href="#"><FaFacebookF /></a>
-          <a href="#"><FaTwitter /></a>
-          <a href="#"><FaInstagram /></a>
+          <a href="#home"><FaFacebookF /></a>
+          <a href="#home"><FaTwitter /></a>
+          <a href="#home"><FaInstagram /></a>
         </div>
       </div>
 

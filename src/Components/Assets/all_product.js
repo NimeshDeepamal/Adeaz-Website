@@ -98,11 +98,6 @@ import p20_img2 from '../Assets/p20_img2.webp'
 import p20_img3 from '../Assets/p20_img3.webp'
 import p20_img4 from '../Assets/p20_img4.webp'
 
-import p1_img from '../Assets/p1.png'
-import p2_img from '../Assets/p2.png'
-import p3_img from '../Assets/p3.png'
-import p4_img from '../Assets/p4.png'
-
 let data_product= [
     {
     id: 1,

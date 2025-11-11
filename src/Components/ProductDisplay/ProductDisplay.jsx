@@ -10,7 +10,7 @@ const ProductDisplay = ({ product }) => {
   const [selectedImage, setSelectedImage] = useState(product.image[0]);
 
   // Track description toggle
-  const [showFullDescription, setShowFullDescription] = useState(false);
+  const [showFullDescription] = useState(false);
 
   // Generate stars dynamically
   const stars = Array(5).fill(false).map((_, i) => i < product.star);
@@ -77,7 +77,7 @@ const ProductDisplay = ({ product }) => {
 
         {/* 📝 Description */}
         <p className="productdisplay-right-description">
-          {displayedDescription}{" "}
+          {displayedDescription}
           
         </p>
 
