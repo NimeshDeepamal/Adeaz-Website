@@ -1,171 +1,130 @@
-.offers {
-  display: flex;
-  width: 70%;
-  height: 70vh;
-  margin: auto;
-  margin-bottom: 100px;
-  padding: 0 140px;
-  background: linear-gradient(to bottom left, #070707, #d8d8d8);
-  gap: 30px;
-  border-radius: 20px;
-  align-items: center;
+/* ===========================
+   OFFER SECTION - MODERN UI
+=========================== */
+
+html, body {
+  overflow-x: hidden; 
 }
 
-/* Left side */
-.offers-left {
-  flex: 1;
+.offer-section {
+  width: 100%;
+  padding: 40px 20px;     
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  overflow: hidden;         
+  box-sizing: border-box;
 }
 
-.offers-left h1 {
-  color: #000;
-  font-size: 80px;
+.offer-box {
+  width: 100%;
+  max-width: 1100px;        
+  padding: 60px 30px;      
+  border-radius: 28px;
+  background: linear-gradient(135deg, #ff7b7b, #ff4141);
+  box-shadow: 0px 20px 40px rgba(0,0,0,0.08);
+  text-align: left;
+  color: #fff;
+  box-sizing: border-box;   
+}
+
+/* ---------------- Text ---------------- */
+.offer-sub {
+  font-size: 18px;
+  text-transform: uppercase;
   font-weight: 600;
+  opacity: 0.9;
   margin: 0;
+}
+
+.offer-title {
+  font-size: 54px;
+  font-weight: 800;
+  margin-top: 10px;
   line-height: 1.1;
 }
 
-.offers-left p {
-  color: #1e1d1d;
-  font-size: 22px;
-  font-weight: 600;
-  margin-top: 15px;
+.offer-desc {
+  margin-top: 18px;
+  font-size: 20px;
+  max-width: 550px;
+  opacity: 0.9;
 }
 
-.offers-left button {
-  width: 282px;
-  height: 70px;
-  border-radius: 35px;
-  background: #ff4141;
+.offer-btn {
+  margin-top: 35px;
+  padding: 18px 45px;
   border: none;
-  color: white;
-  font-size: 22px;
-  font-weight: 500;
-  margin-top: 30px;
+  border-radius: 40px;
+  background: #fff;
+  color: #ff4141;
+  font-size: 18px;
+  font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.6s;
+  transition: 0.3s ease;
 }
 
-.offers-left button:hover {
-  background-color: #ff0303;
+.offer-btn:hover {
+  background: #ffe5e5;
+  transform: translateY(-3px);
 }
 
-/* Right side */
-.offers-right {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
+/* ===========================
+   RESPONSIVE DESIGN
+=========================== */
 
-.offers-right img {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 20px;
-  height: auto;
-  margin-bottom: 50px;
-}
-
-/* ✅ Tablet and Large Screen — keep same layout but smaller sizes */
-@media (max-width: 1024px) {
-  .offers {
-    width: 85%;
-    height: 50vh;
-    padding: 0 60px;
+/* --- Tablet (≤ 992px) --- */
+@media (max-width: 992px) {
+  .offer-box {
+    padding: 50px 25px; 
   }
 
-  .offers-left h1 {
-    font-size: 60px;
+  .offer-title {
+    font-size: 42px;
   }
 
-  .offers-left p {
+  .offer-desc {
     font-size: 18px;
   }
-
-  .offers-left button {
-    width: 220px;
-    height: 55px;
-    font-size: 18px;
-  }
-
-  .offers-right img {
-    max-width: 420px;
-    margin-bottom: 40px;
-  }
 }
 
-/* ✅ Mobile Screens — stack content & image moves to bottom */
+/* --- Mobile (≤ 768px) --- */
 @media (max-width: 768px) {
-  .offers {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-    height: 98vh;
-    padding: 40px 30px;
-    gap: 20px;
+  .offer-box {
+    padding: 40px 15px; 
     text-align: center;
   }
 
-  .offers-left {
-    order: 1;
-    align-items: center;
-    margin-top: 60px;
-  }
-
-  .offers-right {
-    order: 2; /* image at bottom */
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .offers-left h1 {
+  .offer-title {
     font-size: 38px;
   }
 
-  .offers-left p {
+  .offer-desc {
+    max-width: 100%;
     font-size: 16px;
   }
 
-  .offers-left button {
-    width: 180px;
-    height: 50px;
-    font-size: 16px;
-  }
-
-  .offers-right img {
-    max-width: 350px;
-    margin-top: 40px; /* ✅ add space from top */
-    margin-bottom: 0;
+  .offer-btn {
+    width: 80%;
+    max-width: 250px;
   }
 }
 
-/* ✅ Small Mobile Devices */
+/* --- Small Mobile (≤ 480px) --- */
 @media (max-width: 480px) {
-  .offers {
-    width: 95%;
-    padding: 30px 20px;
+  .offer-box {
+    padding: 30px 12px; 
   }
 
-  .offers-left h1 {
-    font-size: 28px;
+  .offer-title {
+    font-size: 30px;
   }
 
-  .offers-left p {
+  .offer-desc {
     font-size: 14px;
   }
 
-  .offers-left button {
-    width: 150px;
-    height: 45px;
-    font-size: 14px;
-  }
-
-  .offers-right img {
-    max-width: 280px;
-    margin-top: 45px; /* ✅ ensures image doesn’t overlap */
+  .offer-btn {
+    padding: 14px 30px;
+    font-size: 16px;
   }
 }

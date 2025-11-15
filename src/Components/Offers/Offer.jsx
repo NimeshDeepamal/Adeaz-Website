@@ -1,21 +1,20 @@
-import React from 'react'
-import '../Offers/Offer.css'
-import exclusive_img from '../Assets/hero_img2.png'
+import React from "react";
+import "./Offer.css";
 
 const Offer = () => {
   return (
-    <div className='offers'>
-      <div className="offers-left">
-        <h1>Exclusive</h1>
-        <h1>Offers For You</h1>
-        <p>ONLY ON BEST SELLERS PRODUCTS</p>
-        <button>Check Now</button>
-      </div>
-      <div className="offers-right">
-        <img src={exclusive_img} alt="img" />
-      </div>
-    </div>
-  )
-}
+    <section className="offer-section">
+      <div className="offer-box">
+        <h3 className="offer-sub">Special Deal</h3>
+        <h1 className="offer-title">Exclusive Offers Just For You</h1>
+        <p className="offer-desc">
+          Get the best discounts on our most popular products.
+        </p>
 
-export default Offer
+        <button className="offer-btn">Shop Now</button>
+      </div>
+    </section>
+  );
+};
+
+export default Offer;

@@ -1,25 +1,22 @@
 .hero {
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
+  align-items: center;
   background: linear-gradient(to bottom, #000000, #1a1a1a);
   border-radius: 30px;
   margin: 20px;
-  padding: 40px 2px 40px 70px;
-  height: 70vh;
+  padding: 40px 50px;
+  min-height: 70vh;
   overflow: hidden;
   position: relative;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .hero-left {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  margin-top: 10%;
   color: white;
   z-index: 2;
-  max-width: 600px;
+  max-width: 550px;
 }
 
 .hero-left h2 {
@@ -36,9 +33,8 @@
   font-size: 16px;
   font-weight: bold;
   border-radius: 6px;
-  width: fit-content;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .hero-left button:hover {
@@ -48,59 +44,47 @@
 
 .hero-right {
   flex: 1;
-  position: relative;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  gap: 10px;
 }
 
 .hero-right img {
-  margin-top: 43px;
-  height: 190%;
-  max-height: 500px;
+  width: 100%;
+  max-width: 450px;        /* ⬅️ Stops overlap */
+  height: auto;
   object-fit: contain;
-  position: relative;
   z-index: 1;
+  
 }
 
 /* ---------- Responsive ---------- */
-
+@media (min-width: 1025px) {
+  .hero-right img {
+    margin-bottom: -150px;
+  }
+}
 /* Tablets */
 @media (max-width: 1024px) {
   .hero {
     flex-direction: column;
-    height: auto;
     text-align: center;
-    padding: 60px 20px;
-    position: relative;
+    padding: 50px 30px;
+    min-height: auto;
   }
 
   .hero-left {
-    align-items: center;
-    margin-top: 0;
-    z-index: 2;
-  }
-
-  .hero-left h2 {
-    font-size: 2rem;
-    margin-bottom: 25px;
+    max-width: 90%;
   }
 
   .hero-right {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    justify-content: flex-end;
-    align-items: flex-end;
-    opacity: 0.9;
+    justify-content: center;
+    margin-top: 20px;
   }
 
   .hero-right img {
-    height: 300px;
-    max-height: 350px;
-    object-fit: contain;
+    max-width: 350px;
+    margin-bottom: -50px;
   }
 }
 
@@ -110,77 +94,30 @@
     padding: 40px 20px;
     margin: 10px;
     border-radius: 20px;
-    height: 65vh;
-    overflow: hidden;
-  }
-
-  .hero-left {
-    align-items: flex-start;
-    text-align: left;
+    min-height: auto;
   }
 
   .hero-left h2 {
     font-size: 1.8rem;
-    line-height: 1.3;
     margin-bottom: 20px;
   }
 
-  .hero-left button {
-    font-size: 15px;
-    padding: 8px 20px;
-  }
-
-  .hero-right {
-    position: absolute;
-    bottom: 0;
-    right: 10px;
-    justify-content: flex-end;
-    align-items: flex-end;
-    opacity: 0.9;
-  }
-
   .hero-right img {
-    height: 250px;
-    max-height: 280px;
+    max-width: 280px;   /* ⬅️ Smaller on mobile */
   }
 }
 
-/* Extra small devices ≤480px */
+/* Extra small ≤480px */
 @media (max-width: 480px) {
   .hero {
-    height: 60vh;
     padding: 30px 16px;
-    margin: 10px;
-    text-align: left;
-    border-radius: 20px;
-    overflow: hidden;
-  }
-
-  .hero-left {
-    align-items: flex-start;
-    max-width: 90%;
   }
 
   .hero-left h2 {
     font-size: 1.4rem;
-    line-height: 1.3;
-    margin-bottom: 18px;
-  }
-
-  .hero-left button {
-    font-size: 14px;
-    padding: 8px 18px;
-  }
-
-  .hero-right {
-    position: absolute;
-    bottom: 0;
-    right: 5px;
-    opacity: 0.8;
   }
 
   .hero-right img {
-    height: 200px;
-    max-height: 230px;
+    max-width: 220px;   /* ⬅️ Prevent overlap completely */
   }
 }

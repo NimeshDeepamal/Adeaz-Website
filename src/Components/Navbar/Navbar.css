@@ -2,27 +2,29 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 95%;
+  width: 100vw;               
+  max-width: 100%;             
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 40px;
+  padding: 15px 30px;
   color: white;
   background-color: #000;
   z-index: 1000;
+  box-sizing: border-box;       
   transition: top 0.3s ease-in-out;
 }
 
-/* Hide/show on scroll */
+/* Hide / show on scroll */
 .navbar-hidden {
-  top: -100px; /* hide */
+  top: -100px;
 }
 .navbar-visible {
-  top: 0; /* show */
+  top: 0;
 }
 
 .nav-logo img {
-  width: 150px;
+  width: 140px;
 }
 
 .nav-menu {
@@ -44,7 +46,6 @@
   height: 2px;
   background-color: white;
   border: none;
-  margin-top: 4px;
 }
 
 .nav-login-cart {
@@ -62,46 +63,49 @@
   position: absolute;
   background-color: red;
   color: white;
-  font-size: 12px;
-  padding: 2px 4px;
+  font-size: 11px;
+  padding: 2px 6px;
   border-radius: 50%;
   top: -8px;
   right: -8px;
 }
 
+/* Mobile dropdown */
 .nav-dropdown {
   display: none;
   width: 30px;
   cursor: pointer;
 }
 
-/* Responsive */
+/* ------- Responsive ------- */
 @media (max-width: 900px) {
-  .navbar{
-    width: 80%;
+  .navbar {
+    padding: 15px 20px;
+    width: 100vw;              
   }
+
+  .nav-dropdown {
+    display: block;
+  }
+
   .nav-menu {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 80px;
-    width: 100%;
-    background-color: #000;
+    top: 70px;
     left: 0;
+    width: 100vw;           
     padding: 20px 0;
+    background-color: #000;
     z-index: 99;
   }
 
   .nav-menu.nav-menu-visible {
     display: flex;
   }
-
-  .nav-dropdown {
-    display: block;
-  }
 }
 
-/* Add padding-top to main content to prevent overlap */
-body > *:not(.navbar) {
-  padding-top: 80px; /* adjust according to navbar height */
+body {
+  padding-top: 80px;
+  overflow-x: hidden;          
 }

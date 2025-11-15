@@ -1,5 +1,5 @@
 .about-page {
-  background-color: #111; /* Dark theme background */
+  background-color: #000000; /* Dark theme background */
   color: #fff; /* White text */
   font-family: 'Arial', sans-serif;
   line-height: 1.8;
@@ -15,7 +15,7 @@
 
 .about-header h1 {
   font-size: 3rem;
-  color: #a3fdff; 
+  color: #ffffff; 
   margin-bottom: 15px;
 }
 
@@ -27,7 +27,7 @@
 .about-section {
   margin-bottom: 50px;
   padding: 20px;
-  background: #2e2e2e;
+  background: #262626;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease;
@@ -39,7 +39,7 @@
 
 .about-section h2 {
   font-size: 2rem;
-  color: #a3fdff;
+  color: #fd8d8d;
   margin-bottom: 15px;
 }
 
