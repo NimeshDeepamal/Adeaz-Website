@@ -99,7 +99,7 @@ export function HeroSection() {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-3xl" />
             <div className="relative h-full w-full rounded-3xl overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1200&q=80"
+                src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=80"
                 alt="Fashion collection"
                 fill
                 priority
@@ -117,7 +117,7 @@ export function HeroSection() {
             >
               <div className="w-16 h-16 rounded-xl overflow-hidden relative">
                 <Image
-                  src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=200&q=80"
+                  src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=200&q=80"
                   alt="Featured product"
                   fill
                   className="object-cover"

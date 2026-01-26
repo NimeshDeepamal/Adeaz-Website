@@ -72,7 +72,7 @@ export function PromoSection() {
               className="relative hidden lg:block"
             >
               <Image
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1000&q=80"
+                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1000&q=80"
                 alt="Special offer collection"
                 fill
                 className="object-cover"
@@ -85,7 +85,7 @@ export function PromoSection() {
           {/* Mobile Image overlay */}
           <div className="absolute inset-0 lg:hidden -z-10">
             <Image
-              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+              src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80"
               alt="Special offer collection"
               fill
               className="object-cover opacity-20"

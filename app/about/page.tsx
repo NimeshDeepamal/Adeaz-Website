@@ -68,7 +68,7 @@ export default function AboutPage() {
           </div>
           <div className="relative aspect-square rounded-3xl overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&q=80"
+              src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80"
               alt="ADEAZ store interior"
               fill
               className="object-cover"
@@ -118,7 +118,7 @@ export default function AboutPage() {
         <section className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16 md:mb-24">
           <div className="relative aspect-[4/3] rounded-3xl overflow-hidden lg:order-2">
             <Image
-              src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&q=80"
+              src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=80"
               alt="Fashion workshop"
               fill
               className="object-cover"
