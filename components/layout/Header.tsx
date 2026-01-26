@@ -20,7 +20,6 @@ import { useCart } from '@/lib/cart-context'
 import { CartDrawer } from '@/components/cart/cart-drawer'
 
 const navigation = [
-  { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' },
 ]

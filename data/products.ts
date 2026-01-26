@@ -399,9 +399,9 @@ export const products: Product[] = [
     price: 9500,
     originalPrice: 11200,
     images: [
-      'https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=800&q=80',
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=800&q=80',
-      'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=800&q=80',
+      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=800&q=80',
+      'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=800&q=80',
+      'https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=800&q=80',
     ],
     category: 'womens',
     subcategory: 'Sarees',
