@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { Heart, ShoppingBag } from 'lucide-react'
+import { Heart, ShoppingBag, Loader2 } from 'lucide-react'
 import { Container } from '@/components/ui/container'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { Button } from '@/components/ui/button'
@@ -11,11 +11,11 @@ import { useAuth } from '@/lib/auth-context'
 import { getProductById, Product } from '@/data/products'
 
 export default function FavoritesPage() {
-  const { isLoggedIn, favorites } = useAuth()
+  const { isLoggedIn, favorites, isLoading, clearAllFavorites } = useAuth()
   const [favoriteProducts, setFavoriteProducts] = useState<Product[]>([])
 
   useEffect(() => {
-    if (isLoggedIn && favorites.length > 0) {
+    if (favorites.length > 0) {
       const products = favorites
         .map((id) => getProductById(id))
         .filter((p): p is Product => p !== undefined)
@@ -23,7 +23,19 @@ export default function FavoritesPage() {
     } else {
       setFavoriteProducts([])
     }
-  }, [isLoggedIn, favorites])
+  }, [favorites])
+
+  if (isLoading) {
+    return (
+      <div className="py-8">
+        <Container>
+          <div className="min-h-[50vh] flex items-center justify-center">
+            <Loader2 className="w-8 h-8 animate-spin text-muted-foreground" />
+          </div>
+        </Container>
+      </div>
+    )
+  }
 
   if (!isLoggedIn) {
     return (
@@ -83,13 +95,22 @@ export default function FavoritesPage() {
       <Container>
         <Breadcrumbs items={[{ label: 'Favorites' }]} className="mb-6" />
         
-        <div className="mb-8">
-          <h1 className="font-display text-3xl md:text-4xl font-bold mb-2">
-            My Favorites
-          </h1>
-          <p className="text-muted-foreground">
-            {favoriteProducts.length} {favoriteProducts.length === 1 ? 'item' : 'items'} in your favorites
-          </p>
+        <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <h1 className="font-display text-3xl md:text-4xl font-bold mb-2">
+              My Favorites
+            </h1>
+            <p className="text-muted-foreground">
+              {favoriteProducts.length} {favoriteProducts.length === 1 ? 'item' : 'items'} in your favorites
+            </p>
+          </div>
+          <Button 
+            variant="outline" 
+            onClick={clearAllFavorites}
+            className="text-red-500 border-red-500 hover:bg-red-50"
+          >
+            Clear All Favorites
+          </Button>
         </div>
 
         <ProductGrid products={favoriteProducts} />

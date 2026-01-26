@@ -2,11 +2,14 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { Heart } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'
 import { Price } from '@/components/ui/price'
+import { useAuth } from '@/lib/auth-context'
+import { useToast } from '@/components/ui/use-toast'
 import type { Product } from '@/data/products'
 
 interface ProductCardProps {
@@ -16,8 +19,43 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product, className, priority = false }: ProductCardProps) {
+  const { isLoggedIn, isFavorite, addToFavorites, removeFromFavorites } = useAuth()
+  const { toast } = useToast()
+  const router = useRouter()
+  
   const isOnSale = product.originalPrice && product.originalPrice > product.price
   const isNew = product.newArrival
+  const isProductFavorite = isFavorite(product.id)
+
+  const handleToggleFavorite = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    
+    if (!isLoggedIn) {
+      toast({
+        title: 'Please log in',
+        description: 'You need to log in to add items to your favorites.',
+        variant: 'destructive',
+      })
+      router.push('/login')
+      return
+    }
+
+    if (isProductFavorite) {
+      removeFromFavorites(product.id)
+      toast({
+        title: 'Removed from favorites',
+        description: `${product.name} has been removed from your favorites.`,
+      })
+    } else {
+      addToFavorites(product.id)
+      toast({
+        title: 'Added to favorites',
+        description: `${product.name} has been added to your favorites.`,
+        variant: 'success',
+      })
+    }
+  }
 
   return (
     <motion.div
@@ -46,14 +84,17 @@ export function ProductCard({ product, className, priority = false }: ProductCar
 
           {/* Wishlist button */}
           <button
-            className="absolute top-3 right-3 h-9 w-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-white"
-            onClick={(e) => {
-              e.preventDefault()
-              // TODO: Add to wishlist functionality
-            }}
-            aria-label="Add to wishlist"
+            className={cn(
+              "absolute top-3 right-3 h-9 w-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center transition-all duration-200 hover:bg-white",
+              isProductFavorite ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+            )}
+            onClick={handleToggleFavorite}
+            aria-label={isProductFavorite ? "Remove from favorites" : "Add to favorites"}
           >
-            <Heart className="h-4 w-4" />
+            <Heart className={cn(
+              "h-4 w-4 transition-colors",
+              isProductFavorite && "fill-red-500 text-red-500"
+            )} />
           </button>
 
           {/* Quick add overlay */}

@@ -11,11 +11,13 @@ interface User {
 interface AuthContextType {
   user: User | null
   isLoggedIn: boolean
+  isLoading: boolean
   login: (email: string, password: string) => Promise<boolean>
   logout: () => void
   favorites: string[]
   addToFavorites: (productId: string) => void
   removeFromFavorites: (productId: string) => void
+  clearAllFavorites: () => void
   isFavorite: (productId: string) => boolean
 }
 
@@ -24,26 +26,33 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined)
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [favorites, setFavorites] = useState<string[]>([])
+  const [isLoading, setIsLoading] = useState(true)
 
   // Load user and favorites from localStorage on mount
   useEffect(() => {
-    const storedUser = localStorage.getItem('adeaz-user')
-    const storedFavorites = localStorage.getItem('adeaz-favorites')
-    
-    if (storedUser) {
-      setUser(JSON.parse(storedUser))
-    }
-    if (storedFavorites) {
-      setFavorites(JSON.parse(storedFavorites))
+    try {
+      const storedUser = localStorage.getItem('adeaz-user')
+      const storedFavorites = localStorage.getItem('adeaz-favorites')
+      
+      if (storedUser) {
+        setUser(JSON.parse(storedUser))
+      }
+      if (storedFavorites) {
+        setFavorites(JSON.parse(storedFavorites))
+      }
+    } catch (error) {
+      console.error('Error loading from localStorage:', error)
+    } finally {
+      setIsLoading(false)
     }
   }, [])
 
-  // Save favorites to localStorage
+  // Save favorites to localStorage whenever they change
   useEffect(() => {
-    if (user) {
+    if (!isLoading) {
       localStorage.setItem('adeaz-favorites', JSON.stringify(favorites))
     }
-  }, [favorites, user])
+  }, [favorites, isLoading])
 
   const login = async (email: string, password: string): Promise<boolean> => {
     // Mock login - in real app, this would call an API
@@ -77,6 +86,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setFavorites((prev) => prev.filter((id) => id !== productId))
   }
 
+  const clearAllFavorites = () => {
+    setFavorites([])
+    localStorage.removeItem('adeaz-favorites')
+  }
+
   const isFavorite = (productId: string) => {
     return favorites.includes(productId)
   }
@@ -86,11 +100,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       value={{
         user,
         isLoggedIn: !!user,
+        isLoading,
         login,
         logout,
         favorites,
         addToFavorites,
         removeFromFavorites,
+        clearAllFavorites,
         isFavorite,
       }}
     >
