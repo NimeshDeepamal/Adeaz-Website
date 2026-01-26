@@ -116,7 +116,7 @@ export const products: Product[] = [
     details: {
       materials: '100% Pure Handloom Cotton. Soft, breathable fabric with natural texture. Zari work on border and pallu.',
       sizeGuide: 'Standard saree length: 5.5 meters with 0.8 meter blouse piece included. Free size - suitable for all body types.',
-      shippingReturns: 'Free shipping on orders above ₹2,000. Easy 7-day returns for unworn items with tags intact. Exchange available for different colors.',
+      shippingReturns: 'Free shipping on orders above Rs. 5,000. Easy 7-day returns for unworn items with tags intact. Exchange available for different colors.',
     },
     featured: true,
     bestSeller: true,
@@ -192,7 +192,7 @@ export const products: Product[] = [
     details: {
       materials: '100% Pure Linen. Lightweight and breathable. Hand embroidery on collar and cuffs.',
       sizeGuide: 'S: Chest 38", M: Chest 40", L: Chest 42", XL: Chest 44", XXL: Chest 46"',
-      shippingReturns: 'Free shipping on orders above ₹2,000. Easy 7-day returns.',
+      shippingReturns: 'Free shipping on orders above Rs. 5,000. Easy 7-day returns.',
     },
     featured: false,
     bestSeller: true,
@@ -305,7 +305,7 @@ export const products: Product[] = [
     details: {
       materials: '100% Handloom Cotton. Soft drape with natural texture.',
       sizeGuide: 'Standard 5.5 meters with blouse piece.',
-      shippingReturns: 'Free shipping above ₹2,000. 7-day returns.',
+      shippingReturns: 'Free shipping above Rs. 5,000. 7-day returns.',
     },
     featured: true,
     bestSeller: false,
@@ -458,7 +458,7 @@ export const products: Product[] = [
     details: {
       materials: '100% Linen. Lightweight and breathable.',
       sizeGuide: 'Relaxed fit with adjustable waist.',
-      shippingReturns: 'Free shipping above ₹2,000. 7-day returns.',
+      shippingReturns: 'Free shipping above Rs. 5,000. 7-day returns.',
     },
     featured: false,
     bestSeller: false,

@@ -173,7 +173,7 @@ export function Footer() {
         <div className="py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} ADEAZ. All rights reserved.</p>
           <div className="flex items-center gap-4">
-            <span>INR ₹</span>
+            <span>LKR Rs.</span>
             <span>|</span>
             <span>English</span>
           </div>

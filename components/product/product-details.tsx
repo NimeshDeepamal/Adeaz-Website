@@ -247,7 +247,7 @@ export function ProductDetails({ product }: ProductDetailsProps) {
           disabled={!product.inStock}
         >
           <ShoppingBag className="mr-2 h-5 w-5" />
-          {product.inStock ? `Add to Cart - ${new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', minimumFractionDigits: 0 }).format(product.price * quantity)}` : 'Out of Stock'}
+          {product.inStock ? `Add to Cart - ${new Intl.NumberFormat('en-LK', { style: 'currency', currency: 'LKR', minimumFractionDigits: 0 }).format(product.price * quantity)}` : 'Out of Stock'}
         </Button>
       </div>
 

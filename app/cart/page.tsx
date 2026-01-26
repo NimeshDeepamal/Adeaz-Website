@@ -239,7 +239,7 @@ export default function CartPage() {
                 </div>
                 {shipping > 0 && (
                   <p className="text-xs text-muted-foreground">
-                    Free shipping on orders above ₹2,000
+                    Free shipping on orders above Rs. 5,000
                   </p>
                 )}
               </div>
