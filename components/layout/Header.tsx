@@ -12,11 +12,13 @@ import {
   Menu,
   X,
   ChevronDown,
+  Heart,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 import { useCart } from '@/lib/cart-context'
+import { useAuth } from '@/lib/auth-context'
 import { CartDrawer } from '@/components/cart/cart-drawer'
 
 const navigation = [
@@ -38,8 +40,10 @@ export function Header() {
   const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false)
   const pathname = usePathname()
   const { itemCount, isOpen, setIsOpen } = useCart()
+  const { favorites } = useAuth()
   
   const isShopActive = pathname?.startsWith('/shop')
+  const favoritesCount = favorites.length
 
   useEffect(() => {
     const handleScroll = () => {
@@ -195,6 +199,17 @@ export function Header() {
               <Link href="/login">
                 <Button variant="ghost" size="icon" aria-label="Account">
                   <User className="h-5 w-5" />
+                </Button>
+              </Link>
+
+              <Link href="/favorites">
+                <Button variant="ghost" size="icon" className="relative" aria-label="Favorites">
+                  <Heart className="h-5 w-5" />
+                  {favoritesCount > 0 && (
+                    <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-red-500 text-[10px] font-medium text-white flex items-center justify-center">
+                      {favoritesCount > 99 ? '99+' : favoritesCount}
+                    </span>
+                  )}
                 </Button>
               </Link>
 
