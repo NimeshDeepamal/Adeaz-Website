@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import type { Metadata } from 'next'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react'
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle, Instagram, Facebook, Twitter } from 'lucide-react'
 import { Container } from '@/components/ui/container'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { Button } from '@/components/ui/button'
@@ -293,20 +293,33 @@ export default function ContactPage() {
 
                 <h3 className="font-semibold mb-4">Follow Us</h3>
                 <div className="flex gap-3">
-                  {['Instagram', 'Twitter', 'Facebook'].map((social) => (
-                    <a
-                      key={social}
-                      href={`https://${social.toLowerCase()}.com`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-background flex items-center justify-center hover:bg-foreground hover:text-background transition-colors"
-                      aria-label={social}
-                    >
-                      <span className="text-xs font-medium">
-                        {social.charAt(0)}
-                      </span>
-                    </a>
-                  ))}
+                  <a
+                    href="https://instagram.com/adeaz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-background flex items-center justify-center hover:bg-foreground hover:text-background transition-colors"
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="https://facebook.com/adeaz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-background flex items-center justify-center hover:bg-foreground hover:text-background transition-colors"
+                    aria-label="Facebook"
+                  >
+                    <Facebook className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="https://twitter.com/adeaz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-background flex items-center justify-center hover:bg-foreground hover:text-background transition-colors"
+                    aria-label="Twitter"
+                  >
+                    <Twitter className="w-5 h-5" />
+                  </a>
                 </div>
               </div>
             </div>

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Eye, EyeOff } from 'lucide-react'
 import { Container } from '@/components/ui/container'
@@ -25,7 +26,9 @@ export default function LoginPage() {
           >
             <div className="text-center mb-8">
               <Link href="/" className="inline-block mb-6">
-                <span className="font-display text-3xl font-bold">ADEAZ</span>
+                <span className="font-display text-3xl font-bold tracking-tight">
+                  ADEAZ
+                </span>
               </Link>
               <h1 className="text-2xl font-bold mb-2">
                 {isLogin ? 'Welcome Back' : 'Create Account'}

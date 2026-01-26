@@ -166,7 +166,8 @@ export default function AboutPage() {
             <Button
               size="lg"
               variant="outline"
-              className="border-background text-background hover:bg-background/10"
+              className="border-background/70 bg-transparent hover:bg-background/10"
+              style={{ color: 'white' }}
               asChild
             >
               <Link href="/contact">Get in Touch</Link>

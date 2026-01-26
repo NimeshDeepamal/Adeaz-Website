@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Instagram, Twitter, Facebook, Youtube } from 'lucide-react'
 import { Container } from '@/components/ui/container'
 import { Input } from '@/components/ui/input'
@@ -73,7 +74,9 @@ export function Footer() {
             {/* Brand Column */}
             <div className="col-span-2 md:col-span-4 lg:col-span-1 mb-8 lg:mb-0">
               <Link href="/" className="inline-block">
-                <span className="font-display text-2xl font-bold">ADEAZ</span>
+                <span className="font-display text-2xl font-bold tracking-tight">
+                  ADEAZ
+                </span>
               </Link>
               <p className="mt-4 text-sm text-muted-foreground max-w-xs">
                 Premium streetwear and fashion for the modern individual. Style that moves with you.
