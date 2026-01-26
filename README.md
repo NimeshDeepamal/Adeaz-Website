@@ -1,74 +1,184 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+# ADEAZ - Premium Streetwear & Fashion
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive e-commerce website built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion.
 
-## Available Scripts
+![ADEAZ Preview](https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=80)
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Modern UI/UX**: Clean, minimal design with premium aesthetics
+- **Fully Responsive**: Mobile-first approach, works beautifully on all devices
+- **Performance Optimized**: Next.js Image optimization, dynamic imports
+- **Accessible**: Proper ARIA labels, keyboard navigation, focus states
+- **SEO Ready**: Metadata, OpenGraph, semantic HTML
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Pages
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Home**: Hero section, featured categories, new arrivals, promo banner, best sellers, newsletter
+- **Shop**: Product grid with search, filters (category, size, color, price), sorting
+- **Product Details**: Image gallery, size/color selectors, quantity, add to cart, details accordion
+- **Cart**: Item management, promo codes, order summary
+- **About**: Brand story, values, mission
+- **Contact**: Contact form with validation
 
-### `npm test`
+### Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Next.js 14](https://nextjs.org/) with App Router
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Radix UI](https://www.radix-ui.com/) primitives (shadcn/ui style)
+- [Framer Motion](https://www.framer.com/motion/) for animations
+- [Lucide React](https://lucide.dev/) icons
+- [Zustand](https://zustand-demo.pmnd.rs/) ready (using React Context for cart)
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js 18+ 
+- npm or yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/adeaz-website.git
+   cd adeaz-website
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Build for Production
 
-## Learn More
+```bash
+npm run build
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Project Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+├── app/                    # Next.js App Router pages
+│   ├── about/
+│   ├── cart/
+│   ├── checkout/
+│   ├── contact/
+│   ├── login/
+│   ├── product/[slug]/
+│   ├── shop/
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── not-found.tsx
+│   └── page.tsx
+├── components/
+│   ├── cart/               # Cart drawer component
+│   ├── home/               # Home page sections
+│   ├── layout/             # Header, Footer
+│   ├── product/            # Product card, grid, gallery, details
+│   ├── shop/               # Shop filters, content
+│   └── ui/                 # Reusable UI components
+├── data/
+│   └── products.ts         # Mock product data
+├── lib/
+│   ├── cart-context.tsx    # Cart state management
+│   └── utils.ts            # Utility functions
+└── public/                 # Static assets
+```
 
-### Code Splitting
+## Design System
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Colors
 
-### Analyzing the Bundle Size
+- Background: White (#FFFFFF)
+- Foreground: Near-black (#0A0A0A)
+- Muted: Light gray (#F5F5F5)
+- Border: Light border (#E5E5E5)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Typography
 
-### Making a Progressive Web App
+- Display font: Playfair Display (for headings)
+- Body font: Inter (for text)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Spacing
 
-### Advanced Configuration
+- Consistent 8px spacing system
+- Large paddings for breathing room
+- rounded-2xl for cards
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Components
 
-### Deployment
+All UI components follow shadcn/ui patterns:
+- Button (multiple variants)
+- Input
+- Badge
+- Select
+- Sheet/Drawer
+- Accordion
+- Toast
+- Skeleton
+- Slider
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Customization
 
-### `npm run build` fails to minify
+### Adding Products
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# Adeaz-Website
->>>>>>> 87e27a1fc926bd83b0704ee52054616b58bf7e52
+Edit `/data/products.ts` to add new products:
+
+```typescript
+{
+  id: 'unique-id',
+  name: 'Product Name',
+  slug: 'product-slug',
+  price: 5000,
+  originalPrice: 6000, // optional
+  images: ['url1', 'url2'],
+  category: 'womens' | 'mens' | 'accessories',
+  sizes: [{ name: 'S', available: true }],
+  colors: [{ name: 'White', hex: '#FFFFFF', available: true }],
+  // ... other fields
+}
+```
+
+### Styling
+
+Customize the theme in `tailwind.config.ts`:
+
+```typescript
+theme: {
+  extend: {
+    colors: {
+      primary: 'your-color',
+      // ...
+    }
+  }
+}
+```
+
+## API Integration
+
+The app is designed for easy API integration:
+
+1. Replace mock data imports with API calls
+2. Use React Query or SWR for data fetching
+3. Connect cart context to backend
+4. Add authentication with NextAuth.js
+
+## License
+
+MIT License
+
+## Credits
+
+- Images: [Unsplash](https://unsplash.com/)
+- Icons: [Lucide](https://lucide.dev/)
+- UI Components: [shadcn/ui](https://ui.shadcn.com/)
