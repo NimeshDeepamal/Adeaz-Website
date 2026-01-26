@@ -2,17 +2,60 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { Eye, EyeOff } from 'lucide-react'
 import { Container } from '@/components/ui/container'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
+import { useAuth } from '@/lib/auth-context'
+import { useToast } from '@/components/ui/use-toast'
 
 export default function LoginPage() {
   const [isLogin, setIsLogin] = useState(true)
   const [showPassword, setShowPassword] = useState(false)
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [name, setName] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const { login, isLoggedIn } = useAuth()
+  const { toast } = useToast()
+  const router = useRouter()
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!email || !password) {
+      toast({
+        title: 'Missing fields',
+        description: 'Please fill in all required fields.',
+        variant: 'destructive',
+      })
+      return
+    }
+
+    setIsLoading(true)
+    
+    const success = await login(email, password)
+    
+    if (success) {
+      toast({
+        title: isLogin ? 'Welcome back!' : 'Account created!',
+        description: isLogin ? 'You have been signed in.' : 'Your account has been created.',
+        variant: 'success',
+      })
+      router.push('/')
+    } else {
+      toast({
+        title: 'Error',
+        description: 'Something went wrong. Please try again.',
+        variant: 'destructive',
+      })
+    }
+    
+    setIsLoading(false)
+  }
 
   return (
     <div className="py-8 min-h-[80vh] flex items-center">
@@ -40,7 +83,7 @@ export default function LoginPage() {
               </p>
             </div>
 
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               {!isLogin && (
                 <div>
                   <label
@@ -49,7 +92,12 @@ export default function LoginPage() {
                   >
                     Full Name
                   </label>
-                  <Input id="name" placeholder="John Doe" />
+                  <Input 
+                    id="name" 
+                    placeholder="John Doe" 
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
                 </div>
               )}
 
@@ -60,7 +108,14 @@ export default function LoginPage() {
                 >
                   Email
                 </label>
-                <Input id="email" type="email" placeholder="john@example.com" />
+                <Input 
+                  id="email" 
+                  type="email" 
+                  placeholder="john@example.com" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
               </div>
 
               <div>
@@ -76,6 +131,9 @@ export default function LoginPage() {
                     type={showPassword ? 'text' : 'password'}
                     placeholder="••••••••"
                     className="pr-10"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
                   />
                   <button
                     type="button"
@@ -109,8 +167,8 @@ export default function LoginPage() {
                 </div>
               )}
 
-              <Button type="submit" size="lg" className="w-full">
-                {isLogin ? 'Sign In' : 'Create Account'}
+              <Button type="submit" size="lg" className="w-full" disabled={isLoading}>
+                {isLoading ? 'Please wait...' : isLogin ? 'Sign In' : 'Create Account'}
               </Button>
             </form>
 

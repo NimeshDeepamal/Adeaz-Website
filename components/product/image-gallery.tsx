@@ -26,13 +26,13 @@ export function ImageGallery({ images, alt }: ImageGalleryProps) {
   return (
     <div className="flex flex-col-reverse lg:flex-row gap-4">
       {/* Thumbnails - Desktop */}
-      <div className="hidden lg:flex flex-col gap-3 w-20">
+      <div className="hidden lg:flex flex-col gap-3 w-24">
         {images.map((image, index) => (
           <button
             key={index}
             onClick={() => setSelectedIndex(index)}
             className={cn(
-              'relative aspect-square rounded-lg overflow-hidden border-2 transition-all',
+              'relative aspect-[3/4] rounded-lg overflow-hidden border-2 transition-all bg-neutral-100',
               selectedIndex === index
                 ? 'border-foreground'
                 : 'border-transparent hover:border-muted-foreground/50'
@@ -43,7 +43,7 @@ export function ImageGallery({ images, alt }: ImageGalleryProps) {
               alt={`${alt} thumbnail ${index + 1}`}
               fill
               className="object-cover"
-              sizes="80px"
+              sizes="96px"
             />
           </button>
         ))}
@@ -51,7 +51,7 @@ export function ImageGallery({ images, alt }: ImageGalleryProps) {
 
       {/* Main Image */}
       <div className="relative flex-1">
-        <div className="relative aspect-[3/4] lg:aspect-square overflow-hidden rounded-2xl bg-muted">
+        <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-neutral-100">
           <AnimatePresence mode="wait">
             <motion.div
               key={selectedIndex}

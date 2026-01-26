@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { Minus, Plus, ShoppingBag, Heart, Star, Truck, RotateCcw, Shield } from 'lucide-react'
 import { ImageGallery } from './image-gallery'
@@ -15,6 +16,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { useCart } from '@/lib/cart-context'
+import { useAuth } from '@/lib/auth-context'
 import { useToast } from '@/components/ui/use-toast'
 import { cn } from '@/lib/utils'
 import type { Product } from '@/data/products'
@@ -30,7 +32,11 @@ export function ProductDetails({ product }: ProductDetailsProps) {
   )
   const [quantity, setQuantity] = useState(1)
   const { addItem } = useCart()
+  const { isLoggedIn, isFavorite, addToFavorites, removeFromFavorites } = useAuth()
   const { toast } = useToast()
+  const router = useRouter()
+  
+  const isProductFavorite = isFavorite(product.id)
 
   const isOnSale = product.originalPrice && product.originalPrice > product.price
   const discountPercentage = isOnSale
@@ -53,6 +59,33 @@ export function ProductDetails({ product }: ProductDetailsProps) {
       description: `${product.name} has been added to your cart.`,
       variant: 'success',
     })
+  }
+
+  const handleToggleFavorite = () => {
+    if (!isLoggedIn) {
+      toast({
+        title: 'Please log in',
+        description: 'You need to log in to add items to your favorites.',
+        variant: 'destructive',
+      })
+      router.push('/login')
+      return
+    }
+
+    if (isProductFavorite) {
+      removeFromFavorites(product.id)
+      toast({
+        title: 'Removed from favorites',
+        description: `${product.name} has been removed from your favorites.`,
+      })
+    } else {
+      addToFavorites(product.id)
+      toast({
+        title: 'Added to favorites',
+        description: `${product.name} has been added to your favorites.`,
+        variant: 'success',
+      })
+    }
   }
 
   return (
@@ -193,9 +226,14 @@ export function ProductDetails({ product }: ProductDetailsProps) {
             <ShoppingBag className="mr-2 h-5 w-5" />
             {product.inStock ? 'Add to Cart' : 'Out of Stock'}
           </Button>
-          <Button size="xl" variant="outline">
-            <Heart className="h-5 w-5" />
-            <span className="sr-only">Add to wishlist</span>
+          <Button 
+            size="xl" 
+            variant="outline"
+            onClick={handleToggleFavorite}
+            className={cn(isProductFavorite && 'text-red-500 border-red-500 hover:bg-red-50')}
+          >
+            <Heart className={cn('h-5 w-5', isProductFavorite && 'fill-current')} />
+            <span className="sr-only">{isProductFavorite ? 'Remove from favorites' : 'Add to favorites'}</span>
           </Button>
         </div>
 
