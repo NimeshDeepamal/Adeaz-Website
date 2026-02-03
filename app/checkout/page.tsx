@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 
 export const metadata: Metadata = {
-  title: 'Checkout | ADEAZ',
-  description: 'Complete your purchase at ADEAZ.',
+  title: 'Checkout | ADEAaZ',
+  description: 'Complete your purchase at ADEaZ.',
 }
 
 export default function CheckoutPage() {

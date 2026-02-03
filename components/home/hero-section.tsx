@@ -25,7 +25,7 @@ export function HeroSection() {
               transition={{ duration: 0.4, delay: 0.3 }}
               className="inline-block text-sm font-medium text-muted-foreground tracking-wider uppercase mb-4"
             >
-              New Season 2024
+              New Season 2026
             </motion.span>
             
             <motion.h1

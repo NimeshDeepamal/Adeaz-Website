@@ -6,7 +6,7 @@ import { ShopContent } from '@/components/shop/shop-content'
 import { ShopSkeleton } from '@/components/shop/shop-skeleton'
 
 export const metadata: Metadata = {
-  title: 'Shop All Products | ADEAZ',
+  title: 'Shop All Products | ADEaZ',
   description: 'Browse our complete collection of premium streetwear and fashion. Find your perfect style today.',
 }
 

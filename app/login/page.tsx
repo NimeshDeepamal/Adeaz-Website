@@ -70,7 +70,7 @@ export default function LoginPage() {
             <div className="text-center mb-8">
               <Link href="/" className="inline-block mb-6">
                 <span className="font-display text-3xl font-bold tracking-tight">
-                  ADEAZ
+                  ADEaZ
                 </span>
               </Link>
               <h1 className="text-2xl font-bold mb-2">
@@ -79,7 +79,7 @@ export default function LoginPage() {
               <p className="text-muted-foreground">
                 {isLogin
                   ? 'Sign in to access your account'
-                  : 'Sign up to get started with ADEAZ'}
+                  : 'Sign up to get started with ADEaZ'}
               </p>
             </div>
 

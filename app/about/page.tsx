@@ -1,47 +1,52 @@
-import type { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
-import { Container } from '@/components/ui/container'
-import { Button } from '@/components/ui/button'
-import { Breadcrumbs } from '@/components/ui/breadcrumbs'
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { Button } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
+import { ArrowRight } from "lucide-react";
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: 'About Us | ADEAZ',
-  description: 'Learn about ADEAZ - our story, mission, and commitment to premium fashion.',
-}
+  title: "About Us | ADEaZ",
+  description:
+    "Learn about ADEaZ - our story, mission, and commitment to premium fashion.",
+};
 
 const values = [
   {
-    title: 'Quality First',
-    description: 'We source only the finest materials and work with skilled artisans to create pieces that last.',
+    title: "Quality First",
+    description:
+      "We source only the finest materials and work with skilled artisans to create pieces that last.",
   },
   {
-    title: 'Sustainable Fashion',
-    description: 'Committed to reducing our environmental impact through ethical sourcing and responsible production.',
+    title: "Sustainable Fashion",
+    description:
+      "Committed to reducing our environmental impact through ethical sourcing and responsible production.",
   },
   {
-    title: 'Inclusive Style',
-    description: 'Fashion for everyone. We celebrate diversity and create styles that empower all individuals.',
+    title: "Inclusive Style",
+    description:
+      "Fashion for everyone. We celebrate diversity and create styles that empower all individuals.",
   },
   {
-    title: 'Customer Focus',
-    description: 'Your satisfaction is our priority. We are dedicated to providing exceptional service at every touchpoint.',
+    title: "Customer Focus",
+    description:
+      "Your satisfaction is our priority. We are dedicated to providing exceptional service at every touchpoint.",
   },
-]
+];
 
 const stats = [
-  { label: 'Years of Excellence', value: '10+' },
-  { label: 'Happy Customers', value: '50k+' },
-  { label: 'Products Sold', value: '100k+' },
-  { label: 'Team Members', value: '200+' },
-]
+  { label: "Years of Excellence", value: "5+" },
+  { label: "Happy Customers", value: "50k+" },
+  { label: "Products Sold", value: "100k+" },
+  { label: "Team Members", value: "200+" },
+];
 
 export default function AboutPage() {
   return (
     <div className="py-8">
       <Container>
-        <Breadcrumbs items={[{ label: 'About Us' }]} className="mb-6" />
+        <Breadcrumbs items={[{ label: "About Us" }]} className="mb-6" />
 
         {/* Hero Section */}
         <section className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16 md:mb-24">
@@ -50,14 +55,16 @@ export default function AboutPage() {
               Our Story
             </h1>
             <p className="text-lg text-muted-foreground mb-6">
-              ADEAZ was born from a simple idea: everyone deserves access to premium, 
-              stylish fashion that doesn&apos;t compromise on quality or ethics.
+              ADEaZ was born from a simple idea: everyone deserves access to
+              premium, stylish fashion that doesn&apos;t compromise on quality
+              or ethics.
             </p>
             <p className="text-muted-foreground mb-8">
-              Founded in 2014, we started as a small boutique with a passion for 
-              traditional craftsmanship and modern aesthetics. Today, we&apos;ve grown 
-              into a beloved brand serving customers across the globe, but our 
-              commitment to quality and customer satisfaction remains unchanged.
+              Founded in 2020, we started as a small boutique with a passion for
+              traditional craftsmanship and modern aesthetics. Today, we&apos;ve
+              grown into a beloved brand serving customers across the globe, but
+              our commitment to quality and customer satisfaction remains
+              unchanged.
             </p>
             <Button size="lg" asChild>
               <Link href="/shop">
@@ -69,7 +76,7 @@ export default function AboutPage() {
           <div className="relative aspect-square rounded-3xl overflow-hidden">
             <Image
               src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80"
-              alt="ADEAZ store interior"
+              alt="ADEaZ store interior"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -98,7 +105,8 @@ export default function AboutPage() {
               Our Values
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              These core principles guide everything we do, from design to delivery.
+              These core principles guide everything we do, from design to
+              delivery.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -108,7 +116,9 @@ export default function AboutPage() {
                 className="p-6 rounded-2xl border bg-card hover:shadow-lg transition-shadow"
               >
                 <h3 className="font-semibold text-lg mb-2">{value.title}</h3>
-                <p className="text-sm text-muted-foreground">{value.description}</p>
+                <p className="text-sm text-muted-foreground">
+                  {value.description}
+                </p>
               </div>
             ))}
           </div>
@@ -130,18 +140,20 @@ export default function AboutPage() {
               Our Mission
             </h2>
             <p className="text-muted-foreground mb-4">
-              We believe that fashion should be accessible, sustainable, and empowering. 
-              Our mission is to create clothing that makes you feel confident and 
-              comfortable while respecting our planet and the people who make our products.
+              We believe that fashion should be accessible, sustainable, and
+              empowering. Our mission is to create clothing that makes you feel
+              confident and comfortable while respecting our planet and the
+              people who make our products.
             </p>
             <p className="text-muted-foreground mb-4">
-              Every piece in our collection is thoughtfully designed, ethically produced, 
-              and made to last. We work directly with artisans and manufacturers who 
-              share our commitment to fair wages and safe working conditions.
+              Every piece in our collection is thoughtfully designed, ethically
+              produced, and made to last. We work directly with artisans and
+              manufacturers who share our commitment to fair wages and safe
+              working conditions.
             </p>
             <p className="text-muted-foreground">
-              When you choose ADEAZ, you&apos;re not just buying clothes – you&apos;re 
-              supporting a movement towards more conscious fashion.
+              When you choose ADEaZ, you&apos;re not just buying clothes –
+              you&apos;re supporting a movement towards more conscious fashion.
             </p>
           </div>
         </section>
@@ -149,10 +161,10 @@ export default function AboutPage() {
         {/* CTA Section */}
         <section className="text-center py-12 md:py-16 bg-foreground text-background rounded-3xl">
           <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-            Join the ADEAZ Family
+            Join the ADEaZ Family
           </h2>
           <p className="text-background/70 mb-8 max-w-md mx-auto">
-            Discover our latest collection and experience the ADEAZ difference.
+            Discover our latest collection and experience the ADEaZ difference.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -167,7 +179,7 @@ export default function AboutPage() {
               size="lg"
               variant="outline"
               className="border-background/70 bg-transparent hover:bg-background/10"
-              style={{ color: 'white' }}
+              style={{ color: "white" }}
               asChild
             >
               <Link href="/contact">Get in Touch</Link>
@@ -176,5 +188,5 @@ export default function AboutPage() {
         </section>
       </Container>
     </div>
-  )
+  );
 }

@@ -75,7 +75,7 @@ export function Footer() {
             <div className="col-span-2 md:col-span-4 lg:col-span-1 mb-8 lg:mb-0">
               <Link href="/" className="inline-block">
                 <span className="font-display text-2xl font-bold tracking-tight">
-                  ADEAZ
+                  ADEaZ
                 </span>
               </Link>
               <p className="mt-4 text-sm text-muted-foreground max-w-xs">
@@ -171,7 +171,7 @@ export function Footer() {
 
         {/* Bottom Section */}
         <div className="py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} ADEAZ. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} ADEaZ. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <span>LKR Rs.</span>
             <span>|</span>

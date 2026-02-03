@@ -1,8 +1,8 @@
-# ADEAZ - Premium Streetwear & Fashion
+# ADEaZ - Premium Streetwear & Fashion
 
 A modern, responsive e-commerce website built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion.
 
-![ADEAZ Preview](https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=80)
+![ADEaZ Preview](https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=80)
 
 ## Features
 

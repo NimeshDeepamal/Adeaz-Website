@@ -24,12 +24,12 @@ export async function generateMetadata({
 
   if (!product) {
     return {
-      title: 'Product Not Found | ADEAZ',
+      title: 'Product Not Found | ADEaZ',
     }
   }
 
   return {
-    title: `${product.name} | ADEAZ`,
+    title: `${product.name} | ADEaZ`,
     description: product.description,
     openGraph: {
       title: product.name,

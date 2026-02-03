@@ -1,44 +1,58 @@
-import type { Metadata } from 'next'
-import { Inter, Playfair_Display } from 'next/font/google'
-import './globals.css'
-import { Header } from '@/components/layout/Header'
-import { Footer } from '@/components/layout/Footer'
-import { CartProvider } from '@/lib/cart-context'
-import { AuthProvider } from '@/lib/auth-context'
-import { Toaster } from '@/components/ui/toaster'
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
+import { Toaster } from "@/components/ui/toaster";
+import { AuthProvider } from "@/lib/auth-context";
+import { CartProvider } from "@/lib/cart-context";
+import type { Metadata } from "next";
+import { Inter, Playfair_Display } from "next/font/google";
+import "./globals.css";
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-})
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
 const playfair = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-playfair',
-})
+  subsets: ["latin"],
+  variable: "--font-playfair",
+});
 
 export const metadata: Metadata = {
-  title: 'ADEAZ | Premium Streetwear & Fashion',
-  description: 'Discover the style that moves with you. Premium streetwear and fashion for the modern individual.',
-  keywords: ['streetwear', 'fashion', 'clothing', 'premium', 'minimal', 'style'],
+  title: "ADEaZ | Premium Streetwear & Fashion",
+  description:
+    "Discover the style that moves with you. Premium streetwear and fashion for the modern individual.",
+  keywords: [
+    "streetwear",
+    "fashion",
+    "clothing",
+    "premium",
+    "minimal",
+    "style",
+  ],
+  icons: {
+    icon: "/adeazlogo.png",
+    shortcut: "/adeazlogo.png",
+    apple: "/adeazlogo.png",
+  },
   openGraph: {
-    title: 'ADEAZ | Premium Streetwear & Fashion',
-    description: 'Discover the style that moves with you. Premium streetwear and fashion for the modern individual.',
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'ADEAZ',
+    title: "ADEaZ | Premium Streetwear & Fashion",
+    description:
+      "Discover the style that moves with you. Premium streetwear and fashion for the modern individual.",
+    type: "website",
+    locale: "en_US",
+    siteName: "ADEaZ",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'ADEAZ | Premium Streetwear & Fashion',
-    description: 'Discover the style that moves with you.',
+    card: "summary_large_image",
+    title: "ADEaZ | Premium Streetwear & Fashion",
+    description: "Discover the style that moves with you.",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
@@ -55,5 +69,5 @@ export default function RootLayout({
         </AuthProvider>
       </body>
     </html>
-  )
+  );
 }
